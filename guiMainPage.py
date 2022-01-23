@@ -32,6 +32,7 @@ class MainPage:
             todoManager.todoReminder.updateCheckList(j[1],j[2],"uncheck")
             BackToMain()
       def editResult(k): # [email,curtime]
+        print(k)
         GUI.GuiStart.callguiEdit(k)
       
       tmp = todoManager.todoReminder.getTodoByStatus(status,islate)
@@ -53,17 +54,19 @@ class MainPage:
         #print(todoList)
         for j in todoList:# j = [[topic,email,curtime],date]
           #print("\n",i[0])
-          tk.Label(frame, text=j[1],font=("Arial", 7),fg=textColor, bg="white").pack(anchor=W)
+          if GUI.GuiStart.catChoice == "All":
+            tk.Label(frame, text=j[1],font=("Arial", 7),fg=textColor, bg="white").pack(anchor=W)
           for i in j[0]:
             #print(j)
             highlight = chooseHightlight(i)
             #print(i[0])
             if GUI.GuiStart.catChoice == "All" :
-              if status == "uncheck": 
+              if status == "uncheck":
                 #frame.config(bg="white")
                 #print(j)
                 #frame.config(bg="white")
                 for k in [i]:
+                  #print(k)
                   #print(i)
                   #frame.config(bg=highlight)
                   frame2 = Frame(frame)
@@ -93,7 +96,7 @@ class MainPage:
                 frame.config(bg="white")
                 #print(i)
                 if categoryManager.categoryReminder.isCatInAdress([i[1],i[2]],GUI.GuiStart.catChoice ) :
-                  tk.Label(frame, text=i[1],font=("Arial", 7),fg=textColor, bg="white").pack(anchor=W)
+                  tk.Label(frame, text=j[1],font=("Arial", 7),fg=textColor, bg="white").pack(anchor=W)
                 for k in [i]:
                   #print(k)
                   if categoryManager.categoryReminder.isCatInAdress([i[1],i[2]],GUI.GuiStart.catChoice ):
