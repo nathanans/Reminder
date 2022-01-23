@@ -15,6 +15,7 @@ class Reminder:
 
   def start(self):
     print("start")
+    print("mod")
 
 st = Reminder()
 st.start()
