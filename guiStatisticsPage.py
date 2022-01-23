@@ -70,6 +70,7 @@ class StatisticPage:
     dataValue = statisticsManager.statisticsReminder.getDataAllUser()
     #dataValue = statisticsManager.statisticsReminder.dataValue
     #print(type(statisticsManager.statisticsReminder.dataValue))
+    print(dataValue)
 
     x1 = dataValue[0]
     x2 = dataValue[2]
