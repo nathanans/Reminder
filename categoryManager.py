@@ -1,5 +1,6 @@
 import todoManager
 import json
+import EmailManager
 class categoryReminder:
   
   def addCat(cat): #add cat key=[]
@@ -34,7 +35,7 @@ class categoryReminder:
       
   #(['email','cur'],cat)
   def addTodoCat(address,cat): #add cat in email
-    categoryReminder.setCat(address,cat)
+    categoryReminder.setCat(address,[cat])
     with open("./Email/"+address[0]+".json") as r:
       addcat = json.load(r)
       catkeyAll = list(addcat[address[1]]["Category"])
@@ -86,7 +87,10 @@ class categoryReminder:
         
   def deleteCatFormAllTodo(cat):
     catValue = categoryReminder.getCatValue(cat)
+    databuf = EmailManager.EmailReminder.getEmail("User","e-mailUsed")
     for i in catValue :
+      if i[0] not in databuf:
+        continue
       with open("./Email/"+i[0]+".json") as w:
         allcat = json.load(w)
         setcat = set(cat)
