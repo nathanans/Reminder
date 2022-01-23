@@ -91,11 +91,12 @@ class MainPage:
               #email = EmailManager.EmailReminder.getEmail("User","e-mailUsed")
               if status == "uncheck" :
                 frame.config(bg="white")
-                if categoryManager.categoryReminder.isCatInAdress([i[0][1],i[0][2]],GUI.GuiStart.catChoice ) :
+                #print(i)
+                if categoryManager.categoryReminder.isCatInAdress([i[1],i[2]],GUI.GuiStart.catChoice ) :
                   tk.Label(frame, text=i[1],font=("Arial", 7),fg=textColor, bg="white").pack(anchor=W)
                 for k in [i]:
                   #print(k)
-                  if categoryManager.categoryReminder.isCatInAdress([i[0][1],i[0][2]],GUI.GuiStart.catChoice ):
+                  if categoryManager.categoryReminder.isCatInAdress([i[1],i[2]],GUI.GuiStart.catChoice ):
                     #frame.config(bg=highlight)
                     frame2 = Frame(frame)
                     frame2.pack(anchor = W,fill = "x")
@@ -107,7 +108,7 @@ class MainPage:
                     n+=1
               else :
                 for k in [i]: #[topic,email,curtime]
-                  if categoryManager.categoryReminder.isCatInAdress([i[0][1],i[0][2]],GUI.GuiStart.catChoice ):
+                  if categoryManager.categoryReminder.isCatInAdress([i[1],i[2]],GUI.GuiStart.catChoice ):
                     #frame.config(bg=highlight)
                     frame2 = Frame(frame)
                     frame2.pack(anchor = W,fill = "x")

@@ -146,6 +146,7 @@ class categoryReminder:
       return catkeyAll
 
   def isCatInAdress(address,cat):
+    #print(address)
     with open("./Email/"+address[0]+".json") as r:
       addcat = json.load(r)
       catkeyAll = list(addcat[address[1]]["Category"])
